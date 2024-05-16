@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:BarkodReader"
+             xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.Maui.Controls"
+             x:Class="BarkodReader.MainPage"
+             BackgroundColor="White">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Barkod tarayıcı -->
+        <zxing:CameraBarcodeReaderView x:Name="cameraBarcodeReaderView"
+                                       Grid.Row="0"
+                                       BarcodesDetected="OnBarcodeDetected"
+                                       HorizontalOptions="FillAndExpand"
+                                       VerticalOptions="FillAndExpand"/>
+
+        <!-- Barkod tarama sonuçlarını göstermek için bir alan -->
+        <StackLayout Grid.Row="1"
+                     Padding="10"
+                     BackgroundColor="LightGray">
+            <Label Text="Barkod Tarayıcı"
+                   FontSize="24"
+                   HorizontalOptions="Center"
+                   VerticalOptions="CenterAndExpand" />
+            <Label x:Name="barcodeResult"
+                   FontSize="18"
+                   HorizontalOptions="Center"
+                   VerticalOptions="CenterAndExpand" />
+        </StackLayout>
+    </Grid>
+</ContentPage>
